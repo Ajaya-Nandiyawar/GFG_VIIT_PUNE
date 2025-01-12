@@ -310,3 +310,79 @@ footer button:hover {
     width: 100%;
     background-color: rgb(121, 187, 148);
 }
+
+
+.team-hero {
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    position: relative;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7));
+    overflow: hidden;
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 6rem;
+    margin-bottom: 2rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-content h2 {
+    font-size: 2.4rem;
+    color: #f0f0f0;
+    font-weight: 400;
+    animation: fadeInUp 1s ease-out 0.3s forwards;
+    opacity: 0;
+}
+
+.highlight {
+    color: #19cc28;
+    text-shadow: 0 0 10px rgba(25,204,40,0.3);
+}
+
+.hero-decoration {
+    width: 60px;
+    height: 4px;
+    background: #19cc28;
+    margin: 3rem auto;
+    position: relative;
+    animation: expandWidth 1s ease-out 0.6s forwards;
+    transform-origin: center;
+    transform: scaleX(0);
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes expandWidth {
+    to {
+        transform: scaleX(1);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 4rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+}

@@ -8,7 +8,6 @@
     font-family: 'Poppins', sans-serif;
 }
 
-
 html {
     font-size: 62.5%;
 }
@@ -16,12 +15,10 @@ html {
 body {
     width: 100%;
     height: 100vh;
-
-    background-color: black;
+    background-color: transparent; /* Ensure background is transparent */
 }
 
 /* Header */
-
 header {
     margin-top: 20px;
     top: 0;
@@ -29,14 +26,13 @@ header {
     height: 100%;
     width: 100%;
     padding: 1rem 9%;
-    background-color: black;
+    background-color: transparent; /* Ensure background is transparent */
     filter: drop-shadow(10px);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 100;
+    z-index: 100; /* Ensure header is above particles */
 }
-
 
 .logo {
     font-style: oblique;
@@ -51,7 +47,6 @@ header {
 .logo:hover {
     transform: scale(1.1);
 }
-
 
 nav a {
     margin: 0 10px;
@@ -84,10 +79,7 @@ nav a.active {
         border-left: 3px solid #19cc28;
         border-bottom: 3px solid #19cc28;
         border-bottom-left-radius: 2rem;
-
     }
-
-
 
     nav a {
         font-size: 2rem;
@@ -95,10 +87,8 @@ nav a.active {
     }
 }
 
-
 .emoji {
     display: inline-block;
-
     width: 40px;
     height: 40px;
     background: url("assets/dino-removebg-preview.png") no-repeat center;
@@ -113,7 +103,6 @@ nav a:hover .emoji {
     opacity: 1;
 }
 
-
 .home {
     width: 100%;
     display: flex;
@@ -121,7 +110,9 @@ nav a:hover .emoji {
     align-items: center;
     padding: 20rem;
     min-height: 100vh;
-    background-color: black;
+    background-color: transparent; /* Ensure background is transparent */
+    position: relative;
+    z-index: 1; /* Ensure home section is above particles */
 }
 
 .home-content h1 {
@@ -181,7 +172,6 @@ nav a:hover .emoji {
 p a {
     color: #ffffff;
 }
-
 
 .typing-text {
     color: white;
@@ -243,31 +233,20 @@ p a {
     }
 }
 
-
 @keyframes words {
-
-    0%,
-    20% {
+    0%, 20% {
         content: "Data Structures";
     }
-
-    21%,
-    40% {
+    21%, 40% {
         content: "Artificial Intelligence";
     }
-
-    41%,
-    60% {
+    41%, 60% {
         content: "Web Designer";
     }
-
-    61%,
-    80% {
+    61%, 80% {
         content: "Web Development";
     }
-
-    81%,
-    100% {
+    81%, 100% {
         content: "DSA";
     }
 }
@@ -279,6 +258,8 @@ footer {
     color: #ffffff;
     padding: 20px;
     text-align: center;
+    position: relative;
+    z-index: 1; /* Ensure footer is above particles */
 }
 
 footer input[type="email"] {
@@ -287,7 +268,6 @@ footer input[type="email"] {
     border-radius: 50px;
     width: 50em;
     margin-right: 10px;
-
 }
 
 footer button {
@@ -306,8 +286,6 @@ footer button:hover {
 .contact-info a {
     color: #ffffff;
 }
-
-
 
 @media (max-width: 995px) {
     .home {
@@ -338,7 +316,8 @@ footer button:hover {
     gap: 40px;
     padding: 20px;
     background-color: transparent;
-
+    position: relative;
+    z-index: 1; /* Ensure container is above particles */
 }
 
 .box {
@@ -352,14 +331,12 @@ footer button:hover {
     border: 2px solid #19cc28;
     border-radius: 10px;
     text-align: center;
-    
     overflow: hidden;
     position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-sizing: border-box;
     background-image: url(background\ box.avif);
 }
-
 
 .box p {
     font-size: 2rem;
@@ -371,16 +348,14 @@ footer button:hover {
     word-wrap: break-word;
 }
 
-
 .box:hover {
     box-shadow: 0 8px 16px rgba(25, 204, 40, 0.8), 0 0 20px #19cc28;
     transform: scale(1.05);
     z-index: 100;
     overflow: visible;
-
 }
 
-.ribbon{
+.ribbon {
     height: 10px;
     width: 100%;
     background-color: rgb(121, 187, 148);

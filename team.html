@@ -7,10 +7,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="icon" href="assets/title image.png" type="image/png" />
   <link rel="stylesheet" href="team.css">
-  
+  <link rel="stylesheet" href="scroll.css">
+  <link rel="stylesheet" href="particle.css">
   </head>
 
   <body>
+    <div id="particles-js"></div>
     <center>
    
       <header id="header">
@@ -34,26 +36,33 @@
         <div class="home-content">
             <h1>Welcome to the <span>TEAM.!</span></h1>
             <h2>Excited for a year of growth, innovation, and teamwork.!</h2>
-             <H1>PRESIDENT</H1>
+            <section class="team-hero">
+              <div class="hero-content">
+                  <h1 class="animate-text">Welcome to the <span class="highlight">TEAM!</span></h1>
+                  <h2 class="animate-text-delayed">Excited for a year of growth, innovation, and teamwork!</h2>
+                  <div class="hero-decoration"></div>
+              </div>
+          </section>
+             <h1>PRESIDENT</h1>
             <div class="container">
               <h1></h1>
               <div class="box_pres">
               </div>
               </div>
 
-              <H1>VICE-PRESIDENT</H1>
+              <h1>VICE-PRESIDENT</h1>
               <div class="container">
                 <div class="box_vice">
                 </div>
                 </div>
 
-              <H1>Secratary</H1>
+              <h1>Secratary</h1>
                <div class="container">
               <div class="box_sec_1"> </div>
               <div class="box_sec_2"> </div>
               </div>
 
-              <H1>Community Head</H1>
+              <h1>Community Head</h1>
               <div class="container">
              <div class="box_com_1"></div>
              <div class="box_com_2"></div>
@@ -113,7 +122,12 @@
         </div>
     </div> 
 </footer>
+<!-- scroll to top button  -->
+<button id="scrollToTop" title="Scroll to Top"></button>
+<script src="scroll.js"></script>
 <script src="footer.js"></script>
 <script src="team.js"></script>
+<script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- stats.js lib -->
+<script src="particle.js"></script>
   </body>
 </html>
