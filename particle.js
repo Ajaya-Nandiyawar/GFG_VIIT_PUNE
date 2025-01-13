@@ -1,12 +1,12 @@
 particlesJS("particles-js", {
   particles: {
     number: {
-      value: 156,
+      value: 50,
       density: { enable: true, value_area: 472.6270185112248 },
     },
     color: { value: "#ffffff" },
     shape: {
-      type: "polygon",
+      type: "triangle",
       stroke: { width: 0, color: "#ffffff" },
       polygon: { nb_sides: 5 },
       image: {
