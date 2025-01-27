@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Club Admin Dashboard</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        line-height: 1.6;
+        background-color: #1a1a1a;
+        color: #ffffff;
+      }
+      .admin-section {
+        background-color: #2d2d2d;
+        padding: 20px;
+        border-radius: 5px;
+      }
+      #loginForm,
+      #contentForm {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      button {
+        cursor: pointer;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+      }
+      input,
+      textarea {
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+
+      /* New form styles */
+      .form {
+        background-color: #2d2d2d;
+        display: block;
+        padding: 1rem;
+        max-width: 350px;
+        border-radius: 0.5rem;
+        padding-right: 2rem;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3),
+          0 4px 6px -2px rgba(0, 0, 0, 0.15);
+        margin: 25vh auto 0;
+      }
+
+      .form-title {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+        font-weight: 600;
+        text-align: center;
+        color: #ffffff;
+      }
+
+      .input-container {
+        position: relative;
+      }
+
+      .input-container input,
+      .form button {
+        outline: none;
+        border: 1px solid #e5e7eb;
+        margin: 8px 0;
+      }
+
+      .input-container input {
+        background-color: #3d3d3d;
+        color: #ffffff;
+        padding: 1rem;
+        padding-right: 3rem;
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        width: 300px;
+        border-radius: 0.5rem;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        border-color: #4d4d4d;
+      }
+
+      .input-container input::placeholder {
+        color: #9ca3af;
+      }
+
+      .input-container span {
+        display: grid;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        place-content: center;
+      }
+
+      .input-container span svg {
+        color: #9ca3af;
+        width: 1rem;
+        height: 1rem;
+      }
+
+      .submit {
+        display: block;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+        background-color: #4f46e5;
+        color: #ffffff;
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        font-weight: 500;
+        width: 100%;
+        border-radius: 0.5rem;
+        text-transform: uppercase;
+      }
+
+      .submit:hover {
+        background-color: #4338ca;
+      }
+
+      /* Dark theme for admin section */
+      #adminSection input,
+      #adminSection textarea {
+        background-color: #3d3d3d;
+        color: #ffffff;
+        border: 1px solid #4d4d4d;
+      }
+
+      #adminSection input::placeholder,
+      #adminSection textarea::placeholder {
+        color: #9ca3af;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loginSection">
+      <form id="loginForm" class="form">
+        <p class="form-title">Admin Login</p>
+        <div class="input-container">
+          <input
+            id="username"
+            placeholder="Enter username"
+            type="text"
+            required
+          />
+        </div>
+        <div class="input-container">
+          <input
+            id="password"
+            placeholder="Enter password"
+            type="password"
+            required
+          />
+        </div>
+        <button class="submit" type="submit">Login</button>
+      </form>
+    </div>
+
+    <div id="adminSection" style="display: none">
+      <h2>Admin Dashboard</h2>
+      <div class="admin-section">
+        <h3>Add New Content</h3>
+        <form id="contentForm">
+          <input type="text" id="title" placeholder="Title" required />
+          <textarea
+            id="description"
+            placeholder="Description"
+            required
+          ></textarea>
+          <input type="file" id="imageUpload" accept="image/*" />
+          <input type="text" id="successStory" placeholder="Success Story" />
+          <button type="submit">Add Content</button>
+        </form>
+      </div>
+      <div id="existingContent"></div>
+      <button>
+        <a href="Club Public Content.html" target="_blank" style="color: white;">View Public Page</a>
+      </button>
+    </div>
+
+    <script>
+      const ADMIN_USERNAME = "admin";
+      const ADMIN_PASSWORD = "admin";
+      const CONTENT_STORAGE_KEY = "clubContent";
+
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+
+          if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+            document.getElementById("loginSection").style.display = "none";
+            document.getElementById("adminSection").style.display = "block";
+            renderExistingContent();
+          } else {
+            alert("Invalid credentials");
+          }
+        });
+
+      document
+        .getElementById("contentForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const title = document.getElementById("title").value;
+          const description = document.getElementById("description").value;
+          const successStory = document.getElementById("successStory").value;
+          const imageFile = document.getElementById("imageUpload").files[0];
+
+          const reader = new FileReader();
+          reader.onloadend = function () {
+            const content = {
+              id: Date.now(),
+              title: title,
+              description: description,
+              successStory: successStory,
+              image: reader.result,
+            };
+
+            let contents = JSON.parse(
+              localStorage.getItem(CONTENT_STORAGE_KEY) || "[]"
+            );
+            contents.push(content);
+            localStorage.setItem(CONTENT_STORAGE_KEY, JSON.stringify(contents));
+
+            document.getElementById("contentForm").reset();
+            renderExistingContent();
+          };
+
+          if (imageFile) {
+            reader.readAsDataURL(imageFile);
+          } else {
+            alert("Please upload an image");
+          }
+        });
+
+      function renderExistingContent() {
+        const existingContent = document.getElementById("existingContent");
+        const contents = JSON.parse(
+          localStorage.getItem(CONTENT_STORAGE_KEY) || "[]"
+        );
+
+        existingContent.innerHTML =
+          "<h3>Existing Content</h3>" +
+          contents
+            .map(
+              (content) => `
+                <div>
+                    <strong>${content.title}</strong>
+                    <button onclick="deleteContent(${content.id})">Delete</button>
+                </div>
+            `
+            )
+            .join("");
+      }
+
+      function deleteContent(id) {
+        let contents = JSON.parse(
+          localStorage.getItem(CONTENT_STORAGE_KEY) || "[]"
+        );
+        contents = contents.filter((content) => content.id !== id);
+        localStorage.setItem(CONTENT_STORAGE_KEY, JSON.stringify(contents));
+        renderExistingContent();
+      }
+    </script>
+  </body>
+</html>

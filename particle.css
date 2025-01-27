@@ -16,7 +16,7 @@ header {
 
 .home {
     position: relative;
-    z-index: 1;
+    z-index: 31;
 }
 
 footer {
@@ -25,6 +25,11 @@ footer {
 }
 
 .container {
+    position: relative;
+    z-index: 1;
+}
+
+.main {
     position: relative;
     z-index: 1;
 }
