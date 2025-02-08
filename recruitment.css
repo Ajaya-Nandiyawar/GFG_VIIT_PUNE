@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: #161616;
+    color: white;
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: transparent !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid #19cc28;
+}
+
+.navbar-brand {
+    font-size: 2.4rem;
+    color: #19cc28 !important;
+    font-weight: bold;
+}
+
+.nav-link {
+    font-size: 1.8rem;
+    color: white !important;
+    transition: 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #19cc28 !important;
+}
+
+/* Header Styling */
+header.bg-primary {
+    background-color: transparent !important;
+    padding: 8rem 0;
+    border-bottom: 2px solid #19cc28;
+}
+
+header h1 {
+    font-size: 5rem;
+    margin-bottom: 2rem;
+}
+
+header p {
+    font-size: 2rem;
+}
+
+/* Section Styling */
+section {
+    padding: 5rem 0;
+}
+
+.section-title {
+    font-size: 3.5rem;
+    color: #19cc28;
+    margin-bottom: 3rem;
+}
+
+/* Form Styling */
+.form-control {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid #19cc28;
+    color: white;
+    font-size: 1.6rem;
+}
+
+.form-control:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: #19cc28;
+    box-shadow: 0 0 10px rgba(25, 204, 40, 0.5);
+    color: white;
+}
+
+.form-label {
+    font-size: 1.8rem;
+    color: white;
+}
+
+.btn-primary {
+    background-color: #19cc28;
+    border: none;
+    font-size: 1.6rem;
+    padding: 1rem 3rem;
+    transition: 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #15a620;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(25, 204, 40, 0.7);
+}
+
+/* List Group Styling */
+.list-group-item {
+    background-color: transparent;
+    border-color: #19cc28;
+    color: white;
+    font-size: 1.6rem;
+    padding: 1.5rem;
+}
+
+/* Footer Styling */
+footer {
+    background-color: transparent !important;
+    border-top: 2px solid #19cc28;
+    font-size: 1.4rem;
+}

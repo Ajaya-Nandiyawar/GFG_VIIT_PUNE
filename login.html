@@ -13,24 +13,34 @@
             <source src="assets/backgorund.mp4" type="video/mp4" />
         </video>
     </div>
-    <div class="container">
-        <h2>Login</h2>
-        <form id="loginForm">
-            <input type="text" id="username" placeholder="Username" required>
-            <input type="password" id="password" placeholder="Password" required>
-            <button type="submit">Login</button>
-        </form>
-        
-        <div class="divider">
-            <span>or</span>
-        </div>
-        <button class="google-btn" onclick="signInWithGoogle()" id="googleSignIn">
-            <img src="/api/placeholder/18/18" alt="Google logo" />
-            Sign in with Google
-        </button>
-
-        <div class="login">
-            <p>Don't have an account? <a href="register.html">Register here</a></p>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title text-center">Login</h2>
+                        <form id="loginForm">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="username" placeholder="Username" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" id="password" placeholder="Password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Login</button>
+                        </form>
+                        <div class="divider text-center my-3">
+                            <span>or</span>
+                        </div>
+                        <button class="btn btn-danger btn-block" onclick="signInWithGoogle()" id="googleSignIn">
+                            <img src="/api/placeholder/18/18" alt="Google logo" class="mr-2" />
+                            Sign in with Google
+                        </button>
+                        <div class="login text-center mt-3">
+                            <p>Don't have an account? <a href="register.html">Register here</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <script src="login.js"></script>
