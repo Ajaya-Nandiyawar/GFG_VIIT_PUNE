@@ -260,3 +260,49 @@ footer button:hover {
     width: 100%;
     background-color: rgb(121, 187, 148);
 }
+
+.inside img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    opacity: 0;
+    transform: scale(0.8) rotate(-15deg) translate(-100%, -100%);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: coverPage 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes coverPage {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) rotate(-15deg) translate(-100%, -100%);
+    }
+    30% {
+        opacity: 1;
+    }
+    70% {
+        transform: scale(1.2) rotate(5deg) translate(0, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg) translate(0, 0);
+    }
+}
+
+.hacker-image {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    width: 200px;
+    /* Adjust as needed */
+  }
+  
+  .hacker-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }

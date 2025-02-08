@@ -1,0 +1,302 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: black;
+    padding: 20px;
+    line-height: 1.6;
+    padding-top: 120px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#contentList {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content-item {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    isolation: isolate;
+    position: relative;
+    margin-bottom: 20px;
+    background: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    --gradient: linear-gradient(to bottom, #2eadff, #3d83ff, #7e61ff);
+    --color: #32a6ff;
+    padding: 20px;
+}
+
+.content-item:before {
+    position: absolute;
+    content: "";
+    inset: 0.0625rem;
+    border-radius: 0.9375rem;
+    background: #18181b;
+    z-index: 2;
+}
+
+.content-item:after {
+    position: absolute;
+    content: "";
+    width: 0.25rem;
+    inset: 0.65rem auto 0.65rem 0.5rem;
+    border-radius: 0.125rem;
+    background: var(--gradient);
+    transition: transform 300ms ease;
+    z-index: 4;
+}
+
+.content-item:hover:after {
+    transform: translateX(0.15rem);
+}
+
+.content-item img {
+    max-width: 200px;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 5;
+}
+
+.content-item h3 {
+    color: var(--color);
+    padding: 0.65rem 0.25rem 0.4rem 1.25rem;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: transform 300ms ease;
+    z-index: 5;
+    position: relative;
+}
+
+.content-item p {
+    color: #99999d;
+    padding: 0 1.25rem;
+    transition: transform 300ms ease;
+    z-index: 5;
+    position: relative;
+}
+
+.content-item:hover h3,
+.content-item:hover p {
+    transform: translateX(0.25rem);
+}
+
+.notiglow,
+.notiborderglow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle closest-side at center, white, transparent);
+    opacity: 0;
+    transition: opacity 300ms ease;
+    pointer-events: none;
+}
+
+.notiglow { z-index: 3; }
+.notiborderglow { z-index: 1; }
+
+.content-item:hover .notiglow { opacity: 0.1; }
+.content-item:hover .notiborderglow { opacity: 0.1; }
+
+/* Keep existing button styles */
+.Documents-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: fit-content;
+    height: 45px;
+    border: none;
+    padding: 0px 15px;
+    border-radius: 5px;
+    background-color: rgb(49, 49, 83);
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    z-index: 5;
+}
+.folderContainer {
+    width: 40px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+}
+.fileBack {
+    z-index: 1;
+    width: 80%;
+    height: auto;
+}
+.filePage {
+    width: 50%;
+    height: auto;
+    position: absolute;
+    z-index: 2;
+    transition: all 0.3s ease-out;
+}
+.fileFront {
+    width: 85%;
+    height: auto;
+    position: absolute;
+    z-index: 3;
+    opacity: 0.95;
+    transform-origin: bottom;
+    transition: all 0.3s ease-out;
+}
+.text {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+.Documents-btn:hover .filePage {
+    transform: translateY(-5px);
+}
+.Documents-btn:hover {
+    background-color: rgb(58, 58, 94);
+}
+.Documents-btn:active {
+    transform: scale(0.95);
+}
+.Documents-btn:hover .fileFront {
+    transform: rotateX(30deg);
+}
+
+.navbar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+#header {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    margin-top: 20px; /* Add space above the heading */
+    color: white;     /* Make heading visible on black background */
+    margin-bottom: 30px; /* Add space below the heading */
+}
+
+footer {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+#contentList {
+    margin-top: 20px; /* Add space above the content list */
+}
+
+/* Add styles for the email prompt dialog */
+.email-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #18181b;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1001;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    border: 1px solid var(--color);
+    display: none;
+}
+
+.email-dialog input {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #3d83ff;
+    background: #242424;
+    color: white;
+}
+
+.email-dialog button {
+    padding: 8px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background: var(--gradient);
+    color: white;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 1000;
+    display: none;
+}
+
+.inside img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    opacity: 0;
+    transform: scale(0.8) rotate(-15deg) translate(-100%, -100%);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: coverPage 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes coverPage {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) rotate(-15deg) translate(-100%, -100%);
+    }
+    30% {
+        opacity: 1;
+    }
+    70% {
+        transform: scale(1.2) rotate(5deg) translate(0, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg) translate(0, 0);
+    }
+}
+
+.hacker-image {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    width: 200px;
+    /* Adjust as needed */
+  }
+  
+  .hacker-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }

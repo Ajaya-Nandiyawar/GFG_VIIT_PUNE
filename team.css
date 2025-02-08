@@ -386,3 +386,19 @@ footer button:hover {
         font-size: 2rem;
     }
 }
+
+.hacker-image {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    width: 200px;
+    /* Adjust as needed */
+  }
+  
+  .hacker-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
