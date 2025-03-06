@@ -18,7 +18,7 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
     if (username === "Ajaya" && password === "abc@123") {
         alert("Login successful!");
         // Redirect or proceed with login logic here
-        window.location.href = "home_page.html"; // Example redirection
+        window.location.href = "index.html"; // Example redirection
     } else {
         alert("Invalid username or password.");
     }

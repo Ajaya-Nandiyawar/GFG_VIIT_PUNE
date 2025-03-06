@@ -35,7 +35,7 @@ googleLogin.addEventListener("click", function () {
       
       const user = result.user;
       console.log(user);
-      window.location.href = "home_page.html";
+      window.location.href = "index.html";
       
     })
     .catch((error) => {
